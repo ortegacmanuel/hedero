@@ -12,9 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+// Usuarios
+Route::get('@{user}', 'UsersController@show')->name('usuarios.show');
+Route::get('/editar/@{user}', 'UsersController@edit')->name('usuarios.edit');
